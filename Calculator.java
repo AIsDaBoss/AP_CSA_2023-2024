@@ -5,39 +5,92 @@ public class Calculator
 
     private final int x1 = 0; //final variable
     private final double y1 = 65.34; //double variable
-    private int x2 = 1; //int variable
-    private double y2 = (12.5 * x2) + 20.71; //arithmetic operators
+    private int x2; //int variable
+    private double y2;
     private double slope = 0;
     private boolean slopeIsPos = false;  //boolean variable
 
-    public static void intro()
+    private int favNum; //private instance variable
+
+    public int getFavNum() //accessor
+    {
+        return favNum;
+    }
+
+
+    public void intro()
     {
         System.out.println("What is your favorite number?"); //println statement
         Scanner s = new Scanner(System.in); //scanner
-        double favNum = s.nextDouble(); //user input
+        int fN = s.nextInt(); //user input
         System.out.println("...");
-        System.out.println("You mean " + (int)favNum + ", right?"); //cast double to integer
+        System.out.println("You mean " + ((double)fN + 0.1) + ", right?"); //cast int to double
         System.out.println("Well that's kinda a boring number.");
         System.out.println("Anyways, time for serious business."); //string literal
         System.out.println();
+        favNum = fN;
     }
 
-    public void printMath()
+    public void setCoord2(int x, double y) //constructor with formal parameters
     {
-        System.out.println("The coordinates of the first point are (" + x1 + ", " + y1 + ")");
-        System.out.println("The coordinates of the second point are (" + x2 + ", " + y2 + ")");
+        x2 = x;
+        y2 = y;
+    }
 
-        slope = (y2 - y1) / (x2 - x1); //compound expression
-        System.out.println("The slope between the two points is " + slope);
+    public void setCoord2(int x) //overloading constructor
+    {
+        x2 = x;
+        y2 = (favNum * x2) + 20.71; //arithmetic operators
+    }
 
-        slopeIsPos = (slope > 0); //boolean expression
-        System.out.println("Is the slope between the two points positive?: " + slopeIsPos);
-        System.out.println();
+    public void setCoord2()
+    {
+        x2 = favNum;
+        y2 = (favNum * x2) + 20.71;
+    }
+
+    public void printMath(int g)
+    {
+        if(g == 0)
+        {
+            System.out.println("The coordinates of the first point are (" + x1 + ", " + y1 + ")");
+            System.out.println("The coordinates of the second point are (" + x2 + ", " + y2 + ")");
+
+            slope = (y2 - y1) / (x2 - x1); //compound expression
+            System.out.println("The slope between the two points is " + slope);
+
+            slopeIsPos = (slope > 0); //boolean expression
+            System.out.println("Is the slope between the two points positive?: " + slopeIsPos);
+            System.out.println();
+        } else if (g == 1) //else if statement
+        {
+            System.out.println("The coordinates of the first point are (" + x1 + ", " + y1 + ")");
+            System.out.println("The coordinates of the second point are (" + x2 + ", " + y2 + ")");
+
+            slope = (y2 - y1) / (x2 - x1); //compound expression
+            System.out.println("The slope between the two points is " + slope);
+
+            slopeIsPos = (slope > 0); //boolean expression
+            System.out.println("Is the slope between the two points positive?: " + slopeIsPos);
+            if (slopeIsPos){
+                System.out.println("Great job!");
+            } else{
+                System.out.println("Hmm...");
+                //System.out.println("Here is a point that would have worked: (" + (x2 + 3);
+            }
+        }
     }
 
     public void askForGuess()
     {
-        System.out.println("Guess how much to add/subtract from x2 to make the slope between point one and point two positive.");
+        if(!slopeIsPos) //if statement
+        {
+            System.out.println("Guess how much to add/subtract from x2 to make the slope between point one and point two positive.");
+        }
+        else //else statement
+        {
+            System.out.println("Guess how much to add/subtract from x2 to make the slope between point one and point two negative.");
+        }
         int tempx = x2;
         tempx ++; //increment assignment operator
         double tempy = (12.5 * tempx) + 20.71;
