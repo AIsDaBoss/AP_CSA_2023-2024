@@ -4,9 +4,9 @@ public class Main
   public static void main(String[] args)
   {
 
-    Calculator c = new Calculator(); //constructor
+    Calculator c = new Calculator(3); //constructing object
 
-    c.intro();
+    c.intro(); //calling void nonstatic method through object
     c.setCoord2(c.getFavNum());
     c.printMath(0); //actual parameter
     c.askForGuess();

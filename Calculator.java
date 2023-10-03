@@ -17,8 +17,23 @@ public class Calculator
         return favNum;
     }
 
+    public Calculator(int x, Double y) //constructor
+    {
+        x2 = x;
+        y2 = y;
+    }
 
-    public void intro()
+    public Calculator(int x) //overloaded constructor
+    {
+        x2 = x;
+    }
+
+    public Calculator(Double y)
+    {
+        y2 = y;
+    }
+
+    public void intro() //void method
     {
         System.out.println("What is your favorite number?"); //println statement
         Scanner s = new Scanner(System.in); //scanner
@@ -31,13 +46,13 @@ public class Calculator
         favNum = fN;
     }
 
-    public void setCoord2(int x, double y) //constructor with formal parameters
+    public void setCoord2(int x, double y) // nonstatic void method with parameters
     {
         x2 = x;
         y2 = y;
     }
 
-    public void setCoord2(int x) //overloading constructor
+    public void setCoord2(int x) //overloaded method
     {
         x2 = x;
         y2 = (favNum * x2) + 20.71; //arithmetic operators
