@@ -12,7 +12,7 @@ public class Calculator
 
     private int favNum; //private instance variable
 
-    public int getFavNum() //accessor
+    public int getFavNum() //accessor, non-void method
     {
         return favNum;
     }
