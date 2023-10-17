@@ -33,15 +33,19 @@ public class Calculator
         y2 = y;
     }
 
+    public String toString() //toString method for object
+    {
+        return(String.valueOf(slope)); //method from the string class
+    }
+
     public void intro() //void method
     {
         System.out.println("What is your favorite number?"); //println statement
         Scanner s = new Scanner(System.in); //scanner
         int fN = s.nextInt(); //user input
-        System.out.println("...");
+        System.out.println("..."); //string literal
         System.out.println("You mean " + ((double)fN + 0.1) + ", right?"); //cast int to double
-        System.out.println("Well that's kinda a boring number.");
-        System.out.println("Anyways, time for serious business."); //string literal
+        System.out.println("Well that\'s kinda a boring number. \nAnyways, time for serious business."); //escape sequence
         System.out.println();
         favNum = fN;
     }
@@ -68,7 +72,7 @@ public class Calculator
     {
         if(g == 0)
         {
-            System.out.println("The coordinates of the first point are (" + x1 + ", " + y1 + ")");
+            System.out.println("The coordinates of the first point are (" + x1 + ", " + y1 + ")"); //concatenation of strings and literals
             System.out.println("The coordinates of the second point are (" + x2 + ", " + y2 + ")");
 
             slope = (y2 - y1) / (x2 - x1); //compound expression
@@ -88,7 +92,7 @@ public class Calculator
             slopeIsPos = (slope > 0); //boolean expression
             System.out.println("Is the slope between the two points positive?: " + slopeIsPos);
             if (slopeIsPos){
-                System.out.println("Great job!");
+                System.out.println("Great job!"); //string literal
             } else{
                 System.out.println("Hmm...");
                 //System.out.println("Here is a point that would have worked: (" + (x2 + 3);
@@ -109,7 +113,7 @@ public class Calculator
         int tempx = x2;
         tempx ++; //increment assignment operator
         double tempy = (12.5 * tempx) + 20.71;
-        System.out.println("Here's a hint, y2 when you add 1 to x2 is " + tempy +".");
+        System.out.println("Here\'s a hint, y2 when you add 1 to x2 is " + tempy +".");
         Scanner s = new Scanner(System.in);
         int deltax2 = s.nextInt();
         x2 += deltax2; //compound assignment operator
