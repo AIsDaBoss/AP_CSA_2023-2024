@@ -70,7 +70,7 @@ public class Calculator
 
     public void printMath(int g)
     {
-        if(g == 0)
+        if(g == 0) //relational operator
         {
             System.out.println("The coordinates of the first point are (" + x1 + ", " + y1 + ")"); //concatenation of strings and literals
             System.out.println("The coordinates of the second point are (" + x2 + ", " + y2 + ")");
