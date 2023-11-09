@@ -4,7 +4,7 @@ public class Calculator
 {
 
     private final int x1 = 0; //final variable
-    private final double y1 = 65.34; //double variable
+    private double y1 = 65.34; //double variable
     private int x2; //int variable
     private double y2;
     private double slope = 0;
@@ -52,50 +52,57 @@ public class Calculator
 
     public void setCoord2(int x, double y) // nonstatic void method with parameters
     {
+        y1 = Math.pow((favNum * x1),2) + 20.71;
         x2 = x;
         y2 = y;
     }
 
     public void setCoord2(int x) //overloaded method
     {
+        y1 = Math.pow((favNum * x1),2) + 20.71;
         x2 = x;
-        y2 = (favNum * x2) + 20.71; //arithmetic operators
+        y2 = Math.pow((favNum * x2),2) + 20.71; //arithmetic operators
     }
 
     public void setCoord2()
     {
+        y1 = Math.pow((favNum * x1),2) + 20.71;
         x2 = favNum;
-        y2 = (favNum * x2) + 20.71;
+        y2 = Math.pow((favNum * x2),2) + 20.71;
     }
 
     public void printMath(int g)
     {
-        if(g == 0) //relational operator
+        boolean goal = !slopeIsPos;
+        System.out.println("The coordinates of the first point are (" + x1 + ", " + y1 + ")"); //concatenation of strings and literals
+        System.out.println("The coordinates of the second point are (" + x2 + ", " + y2 + ")");
+
+        slope = (y2 - y1) / (x2 - x1); //compound expression
+        System.out.println("The slope between the two points is " + slope);
+
+        slopeIsPos = (slope > 0); //boolean expression
+        System.out.println("Is the slope between the two points positive?: " + slopeIsPos);
+
+        if(g == 0) //relational operator/control flow
         {
-            System.out.println("The coordinates of the first point are (" + x1 + ", " + y1 + ")"); //concatenation of strings and literals
-            System.out.println("The coordinates of the second point are (" + x2 + ", " + y2 + ")");
-
-            slope = (y2 - y1) / (x2 - x1); //compound expression
-            System.out.println("The slope between the two points is " + slope);
-
-            slopeIsPos = (slope > 0); //boolean expression
-            System.out.println("Is the slope between the two points positive?: " + slopeIsPos);
             System.out.println();
         } else if (g == 1) //else if statement
         {
-            System.out.println("The coordinates of the first point are (" + x1 + ", " + y1 + ")");
-            System.out.println("The coordinates of the second point are (" + x2 + ", " + y2 + ")");
-
-            slope = (y2 - y1) / (x2 - x1); //compound expression
-            System.out.println("The slope between the two points is " + slope);
-
-            slopeIsPos = (slope > 0); //boolean expression
-            System.out.println("Is the slope between the two points positive?: " + slopeIsPos);
-            if (slopeIsPos){
-                System.out.println("Great job!"); //string literal
-            } else{
-                System.out.println("Hmm...");
-                //System.out.println("Here is a point that would have worked: (" + (x2 + 3);
+            if(goal)
+            {
+                if (slopeIsPos){ //if statement
+                    System.out.println("Great job!"); //string literal
+                } else{ //else statement
+                    System.out.println("Hmm...Not quite.");
+                    //System.out.println("Here is a point that would have worked: (" + (x2 + 3);
+                }
+            }else {
+                if (!slopeIsPos) { //if statement
+                    System.out.println("Great job!"); //string literal
+                } else { //else statement
+                    System.out.println("Hmm...Not quite.");
+                    //System.out.println("Here is a point that would have worked: (" + (x2 + 3);
+                }
             }
         }
     }
@@ -112,12 +119,12 @@ public class Calculator
         }
         int tempx = x2;
         tempx ++; //increment assignment operator
-        double tempy = (12.5 * tempx) + 20.71;
+        double tempy = Math.pow((favNum * tempx),2) + 20.71;
         System.out.println("Here\'s a hint, y2 when you add 1 to x2 is " + tempy +".");
         Scanner s = new Scanner(System.in);
         int deltax2 = s.nextInt();
         x2 += deltax2; //compound assignment operator
-        y2 = (12.5 * x2) + 20.71;
+        y2 = Math.pow((favNum * x2),2) + 20.71;
 
     }
 
