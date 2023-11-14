@@ -45,7 +45,12 @@ public class Calculator
         int fN = s.nextInt(); //user input
         System.out.println("..."); //string literal
         System.out.println("You mean " + ((double)fN + 0.1) + ", right?"); //cast int to double
-        System.out.println("Well that\'s kinda a boring number. \nAnyways, time for serious business."); //escape sequence
+        if(((fN >0 && fN <=100) && (fN %7 !=0)) || (fN %2 ==0)) //logical operators (!,&&,||)
+        {
+            System.out.println("Okay, fair enough. Good number. \nAnyways, time for serious business.");
+        } else {
+            System.out.println("Well that\'s kinda a boring number. \nAnyways, time for serious business."); //escape sequence
+        }
         System.out.println();
         favNum = fN;
     }
@@ -88,20 +93,19 @@ public class Calculator
             System.out.println();
         } else if (g == 1) //else if statement
         {
-            if(goal)
+            if(goal) //if statement
             {
-                if (slopeIsPos){ //if statement
+                if (slopeIsPos){ //nested if statement
                     System.out.println("Great job!"); //string literal
                 } else{ //else statement
                     System.out.println("Hmm...Not quite.");
                     //System.out.println("Here is a point that would have worked: (" + (x2 + 3);
                 }
             }else {
-                if (!slopeIsPos) { //if statement
-                    System.out.println("Great job!"); //string literal
-                } else { //else statement
+                if (!slopeIsPos) { //logical operator not (!)
+                    System.out.println("Great job!");
+                } else {
                     System.out.println("Hmm...Not quite.");
-                    //System.out.println("Here is a point that would have worked: (" + (x2 + 3);
                 }
             }
         }
@@ -120,7 +124,7 @@ public class Calculator
         int tempx = x2;
         tempx ++; //increment assignment operator
         double tempy = Math.pow((favNum * tempx),2) + 20.71;
-        System.out.println("Here\'s a hint, y2 when you add 1 to x2 is " + tempy +".");
+        System.out.println("Here\'s a hint: when you add 1 to x2, y2 is " + tempy +".");
         Scanner s = new Scanner(System.in);
         int deltax2 = s.nextInt();
         x2 += deltax2; //compound assignment operator
