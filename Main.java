@@ -12,6 +12,17 @@ public class Main
     c.askForGuess();
     c.printMath(1);
 
+    System.out.println("Restarting...");
+
+    Calculator c1 = new Calculator((int)(Math.random() * 100));
+
+    c1.intro();
+    c1.equals(c);//comparing objects with an original equals method
+    c1.setCoord2(c.getFavNum());
+    c1.printMath(0);
+    c1.askForGuess();
+    c1.printMath(1);
+
   }
 }
     

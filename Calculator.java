@@ -38,6 +38,11 @@ public class Calculator
         return(String.valueOf(slope)); //method from the string class
     }
 
+    public boolean equals(Calculator other)
+    {
+        return favNum==other.favNum; //original equals method
+    }
+
     public void intro() //void method
     {
         System.out.println("What is your favorite number?"); //println statement
