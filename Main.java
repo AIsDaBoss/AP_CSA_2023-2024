@@ -3,7 +3,6 @@ public class Main
 {
   public static void main(String[] args)
   {
-
     Calculator c = new Calculator((int)(Math.random() * 100)); //constructing object + method from Math class
 
     c.intro(); //calling void nonstatic method through object
