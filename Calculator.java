@@ -137,5 +137,33 @@ public class Calculator
 
     }
 
+    public void printFace()
+    {
+        for(int y = 0; y < 4; y++) {
+            if (y == 0 || y == 3) {
+                for (int x = 0; x < 7; x++) {
+                    System.out.print("x");
+                }
+                System.out.println();
+            }
+            if (y == 1) {
+                for (int x = 0; x < 2; x++) {
+                    System.out.print("x(.)");
+                }
+                System.out.println("x");
+            }
+            if (y == 2) {
+                System.out.println("xx[---]x");
+            }
+        }
+        System.out.println();
+    }
+
 
 }
+//xxxxxxx
+//x(.)x(.)x
+//xx[---]x
+//xxxxxxx
+//
+//

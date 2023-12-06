@@ -5,6 +5,7 @@ public class Main
   {
     Calculator c = new Calculator((int)(Math.random() * 100)); //constructing object + method from Math class
 
+    c.printFace();
     c.intro(); //calling void nonstatic method through object
     c.setCoord2(c.getFavNum()); //calling non-void method as a parameter
     c.printMath(0); //actual parameter

@@ -6,11 +6,11 @@ public class Algorithms{
     for(x = Math.abs(x); x > 0; i++) x /= 10; //for loop
     return i;
   }
-  
-  public static boolean isDivisibleBy(int a, int b){ //returns if a is divisible by b
+
+  public static boolean isDivisibleBy(int a, int b){ //returns if a is divisble by b
     return a%b ==0;
   }
-  
+
   public static int oddSum(int a, int b){ //returns the sum of all odd numbers between a and b, inclusive
     int i;
     int f;
@@ -29,7 +29,7 @@ public class Algorithms{
     }
     return x;
   }
-  
+
   public static int tenSum(int a, int b){ //returns the sum of all multiples of 10 between a and b, inclusive
     int i;
     int f;
@@ -48,7 +48,7 @@ public class Algorithms{
     }
     return x;
   }
-  
+
   public static int digitSum(int x){ //returns the sum of the digits of x
     int i = 0;
     while(Math.abs(x)>0){
@@ -80,6 +80,42 @@ public class Algorithms{
     while (x > 0){
       if((x % 10) % 2 == 0) c++;
       x /= 10;
+    }
+    return c;
+  }
+
+  public static boolean secInFirst(String a, String b){ // returns whether the second string occurs in the first
+    return a.indexOf(b) != -1;
+  }
+
+  public static String reverseChars(String s){ //returns s backwards
+    String x = "";
+    while(s.length() > 0){
+      x = s.charAt(0) + x;
+      s = s.substring(1);
+    }
+    return x;
+  }
+
+  public static boolean isPalindrome(String s) { //returns whether string s is a palindrome
+    return s.equals(reverseChars(s));
+  }
+
+  public static int occurrences(String a, String b){ // returns the number of occurrences of b in a
+    int c = 0;
+    while (a.indexOf(b) != -1) {
+      c ++;
+      a = a.substring(0, a.indexOf(b)) + a.substring(a.indexOf(b) + b.length());
+    }
+    return c;
+  }
+
+  public static String mostCommonChar(String s){ //returns the most common character in string s
+    int i = 0;
+    String c = s.substring(0,1);
+    while(i < s.length()){
+      if (occurrences(s, c) < occurrences(s, s.substring(i,i+1))) c = s.substring(i,i+1);
+      i++;
     }
     return c;
   }
